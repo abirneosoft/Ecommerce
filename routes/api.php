@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\controllers\couponcontroller;
 use App\Http\Controllers\JWTController;
+use App\Http\Controllers\NewsController;
+
 use App\Http\Controllers\Api\Banner_controller;
 use App\Http\Controllers\Api\Product_image_controller;
 use App\Http\Controllers\Api\Categorycontroller;
@@ -62,4 +64,5 @@ Route::resource('/orderdetail',orderdetail_controller::class);
 Route::resource('/coupon',coupon_controller::class);
 Route::resource('/config',config_controller::class);
 
+Route::resource('/News',NewsController::class);
 

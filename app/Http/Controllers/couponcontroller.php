@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\coupon;
 
-class couponcontroller extends Controller
+class CouponController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,13 +16,13 @@ class couponcontroller extends Controller
     {
         //
         $coup=coupon::where('status','active')->paginate(5);
-        return view('admin.showcoupon',compact('coup'));
+        return view('admin.Coupon.showcoupon',compact('coup'));
     }
     public function couponInactive()
     {
         //
         $coup=coupon::join('orderdetails','coupons.id','=','orderdetails.coupon_id')->paginate(5);
-        return view('admin.inactive_coupon',compact('coup'));
+        return view('admin.Coupon.inactive_coupon',compact('coup'));
     }
 
     /**
@@ -33,7 +33,7 @@ class couponcontroller extends Controller
     public function create()
     {
         //
-        return view('admin.coupon');
+        return view('admin.Coupon.coupon');
     }
 
     /**
@@ -96,7 +96,7 @@ class couponcontroller extends Controller
     {
         //
         $coup=coupon::find($id);
-        return view('admin.editcoupon',compact('coup'));
+        return view('admin.Coupon.editcoupon',compact('coup'));
     }
 
     /**

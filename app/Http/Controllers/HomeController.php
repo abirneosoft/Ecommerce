@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\orderdetail;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -26,6 +28,10 @@ class HomeController extends Controller
         return view('admin.dashboard');
     }
     public function adminhome(){
-        return view('admin.admin_home');
+        $order=orderdetail::count();
+        $user=User::where('is_admin','0')->count();
+        $visit=User::where('is_admin','1')->count();
+
+        return view('admin.admin_home',compact('order','user','visit'));
     }
 }

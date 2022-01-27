@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\category;
 
-class categorycontroller extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class categorycontroller extends Controller
     {
         //
         $cat=category::all();
-        return view('admin.showcategory',compact('cat'));
+        return view('admin.Category.showcategory',compact('cat'));
 
     }
 
@@ -27,7 +27,7 @@ class categorycontroller extends Controller
      */
     public function create()
     {
-        return view('admin.category');
+        return view('admin.Category.category');
     }
 
     /**
@@ -78,7 +78,7 @@ class categorycontroller extends Controller
     public function edit($id)
     {
         $cat=category::find($id);
-        return view('admin.editcategory',compact('cat'));
+        return view('admin.Category.editcategory',compact('cat'));
     }
 
     /**

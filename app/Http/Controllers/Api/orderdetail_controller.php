@@ -17,7 +17,7 @@ class orderdetail_controller extends Controller
     public function index()
     {
         $order=orderdetail::paginate(5);
-        return view('admin.ordermanage',compact('order'));
+        return view('admin.Order.ordermanage',compact('order'));
 
     }
 
@@ -46,7 +46,8 @@ class orderdetail_controller extends Controller
             "quantity"=>$request->quantity,
             "total"=>$request->total,
             "coupon_code"=>$request->coupon_code,
-            "coupon_id"=>$request->coupon_id
+            "coupon_id"=>$request->coupon_id,
+            "product_name"=>$request->product_name
         ]);
 
         Mail::to($request->user_email)->send(new OrderMailToUser($request->all()));

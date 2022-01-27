@@ -19,7 +19,7 @@ class userscontroller extends Controller
         //
         $user=User::where('is_admin','0')->paginate(5);
         // $role=role::where('role_name','Customer')->first();
-         return view('admin.showuser',["user"=>$user]);
+         return view('admin.User.showuser',["user"=>$user]);
        
     }
 
@@ -32,7 +32,7 @@ class userscontroller extends Controller
     {
         //
         $role=role::all();
-        return view('admin.user',compact('role'));
+        return view('admin.User.user',compact('role'));
     }
 
     /**
@@ -110,7 +110,7 @@ class userscontroller extends Controller
     {
         //
         $user=User::find($id);
-        return view('admin.edituser',compact('user'));
+        return view('admin.User.edituser',compact('user'));
     }
 
     /**

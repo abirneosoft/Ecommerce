@@ -33,7 +33,7 @@ class Product_manange_controller extends Controller
     public function create()
     {
         $cat=category::all();
-        return view('admin.product',compact('cat'));
+        return view('admin.Product.product',compact('cat'));
     }
 
     /**
@@ -151,7 +151,7 @@ class Product_manange_controller extends Controller
         $pro = product::all()->where('id',$id)->first();
         $pro_img=product_image::all()->where('product_id',$id)->first();
         $cat=category::all();
-        return view('admin.editproduct',compact('pro','pro_img','cat'));
+        return view('admin.Product.editproduct',compact('pro','pro_img','cat'));
     }
 
     /**
@@ -167,15 +167,18 @@ class Product_manange_controller extends Controller
             'product_name'=>$request->name,'description'=>$request->description,'quantity'=>$request->quantity,'price'=>$request->price,'sale_price'=>$request->sale_price
       ]); 
       if($pro){
-        $file=$request->file('file');
-        $extension=$file->getClientOriginalExtension();
-        $filename=time().'.'.$extension;
-        $file->move(public_path('products/'),$filename);
-        $data=product::latest()->first();
-        $pro_img=product_image::where('product_id',$request->pid)->update([
-            'product_images'=>$filename
-        ]);
-      }
+       $file=$request->file('file');
+            $extension=$file->getClientOriginalExtension();
+            $filename=time().'.'.$extension;
+            $file->move(public_path('products/'),$filename);
+            $data=product::latest()->first();
+            $pro_img=product_image::where('product_id',$request->pid)->update([
+                'product_images'=>$filename
+            ]);
+            
+        }
+       
+      
       if($pro_img){
         $cname=$request->cname;
         $data=product::latest()->first();

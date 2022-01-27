@@ -14,8 +14,8 @@
     <td>{{$user_email}}</td>
     </tr>
    <tr>
-       <th>Product id</th>
-       <td>{{$product_id}}</td>
+       <th>Product name</th>
+       <td>{{$product_name}}</td>
    </tr>
    <tr>
        <th>Price</th>

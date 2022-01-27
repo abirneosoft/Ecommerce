@@ -10,6 +10,7 @@ use App\Models\contact;
 use App\Models\cms;
 use App\Mail\RegisterMailToUser;
 use App\Mail\RegisterMailToAdmin;
+use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Mail; 
 
 
@@ -45,8 +46,8 @@ class JWTController extends Controller
                 'status'=>$request->status,
                 'r_id'=>5
             ]);
-        Mail::to($request->email)->send(new RegisterMailToUser($request->all()));
-        Mail::to($request->email)->send(new RegisterMailToAdmin($request->all()));
+        // Mail::to($request->email)->send(new RegisterMailToUser($request->all()));
+        // Mail::to($request->email)->send(new RegisterMailToAdmin($request->all()));
 
             return response()->json([
                 'message'=>'User create successfully',
@@ -79,6 +80,8 @@ class JWTController extends Controller
             'message'=>$request->message
             
         ]);
+        Mail::to($request->email)->send(new ContactMail($request->all()));
+
         return response()->json([
             'message'=>'contact create successfully',
             'contact'=>$contact
@@ -132,7 +135,9 @@ class JWTController extends Controller
             return response()->json($validator->errors());
         }
         else {
-            $user=User::find($request->user()->id);
+             $profile=auth('api')->user();
+
+            $user=User::find($profile->id);
                 $user->first_name=$request->first_name;
                 $user->last_name=$request->last_name;
                 $user->email=$request->email;
@@ -144,6 +149,7 @@ class JWTController extends Controller
         }
          return response()->json(['status'=>1,'updatedprofile'=>$user]);
      }
+
      public function changePassword(Request $request){
         $validator=Validator::make($request->all(),[
             'old_password'=>'required|min:6|max:12',
@@ -155,7 +161,7 @@ class JWTController extends Controller
             return response()->json($validator->errors());
         }
         else {
-            $user=$request->user();
+            $user=auth('api')->user();
             if(Hash::check($request->old_password,$user->password)){
                $user->update([
                    'password'=>Hash::make($request->new_password)

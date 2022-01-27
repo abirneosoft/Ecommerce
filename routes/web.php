@@ -3,16 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\controllers\usercontroller;
 use App\Http\controllers\userscontroller;
-use App\Http\controllers\categorycontroller;
-use App\Http\controllers\couponcontroller;
+use App\Http\controllers\CategoryController;
+use App\Http\controllers\CouponController;
 use App\Http\controllers\product_manange_controller;
-use App\Http\controllers\product_image_controller;
-use App\Http\controllers\product_category_controller;
-use App\Http\controllers\product_attribute_controller;
-use App\Http\controllers\banner_controller;
+use App\Http\controllers\ProductImageController;
+use App\Http\controllers\ProductCategoryController;
+use App\Http\controllers\ProductAttributeController;
+use App\Http\controllers\BannerController;
 use App\Http\controllers\Api\orderdetail_controller;
-use App\Http\controllers\cms_controller;
-use App\Http\controllers\contact_controller;
+use App\Http\controllers\CmsController;
+use App\Http\controllers\ContactController;
 use App\Http\controllers\show_controller;
 
 /*
@@ -43,27 +43,27 @@ Route::resource('product_manage', product_manange_controller::class);
 
 /**product image */
 
-Route::resource('product_image', product_image_controller::class);
+Route::resource('product_image', ProductImageController::class);
 
 /**product category */
-Route::resource('product_category',product_category_controller::class);
+Route::resource('product_category',ProductCategoryController::class);
 
 /**category Management */
 
-Route::resource('category', categorycontroller::class);
+Route::resource('category', CategoryController::class);
 
 /**product attribute */
-Route::resource('product_attribute', product_attribute_controller::class);
+Route::resource('product_attribute', ProductAttributeController::class);
 
 
 /**Banner Management */
-Route::resource('banner',banner_controller::class);
+Route::resource('banner',BannerController::class);
 
 
 /** coupon Management */
 
-Route::resource('coupon', couponcontroller::class);
-Route::get("/inactive-coupon",[couponcontroller::class,"couponInactive"]);
+Route::resource('coupon', CouponController::class);
+Route::get("/inactive-coupon",[CouponController::class,"couponInactive"]);
 
 /**product management */
  Route::get("/user/product_manage",[usercontroller::class,"pro_manage"]);
@@ -73,10 +73,10 @@ Route::get("/inactive-coupon",[couponcontroller::class,"couponInactive"]);
 Route::resource('ordermanage', orderdetail_controller::class);
 
 /**cms controller */
-Route::resource('cms',cms_controller::class);
+Route::resource('cms',CmsController::class);
 
 /**contact  */
-Route::resource('contact',contact_controller::class);
+Route::resource('contact',ContactController::class);
 
 /**admin configuration */
 Route::resource('configuration',show_controller::class);

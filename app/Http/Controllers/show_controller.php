@@ -15,7 +15,7 @@ class show_controller extends Controller
     public function index()
     {
         $config=configuration::all();
-        return view('admin.showconfigure',compact('config'));
+        return view('admin.Configure.showconfigure',compact('config'));
     }
 
     /**
@@ -59,7 +59,7 @@ class show_controller extends Controller
     public function edit($id)
     {
         $con=configuration::find($id);
-        return view('admin.configuration',compact('con'));
+        return view('admin.Configure.configuration',compact('con'));
     }
 
     /**

@@ -33,7 +33,7 @@ class OrderMailToUser extends Mailable
         return $this->from('example@example.com', 'Example')
                 ->view('Mail.OrderMailToUser')->with([
                     'user_email' => $data['user_email'],
-                    'product_id'=>$data['product_id'],
+                    'product_name'=>$data['product_name'],
                     'price'=>$data['price'],
                     'quantity' => $data['quantity'],
                     'coupon_code'=>$data['coupon_code']

@@ -33,7 +33,7 @@ class Product_image_controller extends Controller
     {
         //
         $pro=product::all();
-        return view('admin.product_image',compact('pro'));
+        return view('admin.Product.product_image',compact('pro'));
     }
 
     /**
@@ -105,7 +105,7 @@ class Product_image_controller extends Controller
     {
         //
         $pro=product_image::find($id);
-        return view('admin.editproduct_img',compact('pro')); 
+        return view('admin.Product.editproduct_img',compact('pro')); 
     }
 
     /**
