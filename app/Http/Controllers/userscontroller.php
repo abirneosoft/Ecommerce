@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\role;
 use App\Models\User;
 use Illuminate\Support\facades\Hash; 
-
+use PDF;
 class userscontroller extends Controller
 {
     /**
@@ -21,8 +21,10 @@ class userscontroller extends Controller
         // $role=role::where('role_name','Customer')->first();
          return view('admin.User.showuser',["user"=>$user]);
        
-    }
+        
 
+    }
+    
     /**
      * Show the form for creating a new resource.
      *

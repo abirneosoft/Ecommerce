@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>COUPON </h1>
+            <h1>ORDER </h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -54,15 +54,15 @@
              
      </div>
    </div>
-   {{$order->links()}}
+   {{$order->links("pagination::bootstrap-4")}}
 </div>
 </div>
 </section>
 </div>
-<style>
+<!-- <style>
   .w-5{
     display:none;
   }
-</style>
+</style> -->
 
 @stop

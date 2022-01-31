@@ -66,16 +66,16 @@
                         </tbody>
                      </tbody>
                  </table>
-             {{$cmss->links()}}
+             {{$cmss->links("pagination::bootstrap-4")}}
      </div>
    </div>
 </div>
 </div>
 </section>
 </div>
-<style>
+<!-- <style>
   .w-5{
     display:none;
   }
-</style>
+</style> -->
 @stop

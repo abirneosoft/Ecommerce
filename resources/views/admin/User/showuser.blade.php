@@ -23,10 +23,16 @@
             <div class="card card-info">
               <div class="card-header">
                 
-              <h3 class="card-title bg-info  h-100 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)"> &nbsp;&nbsp; SHOW USER</h3>
+              <h3 class="card-title bg-info  h-100 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)"> 
+            <a class="btn btn-success" href="/export_user_pdf">Export to PDF</a>
+            </h3>
+            <a class="btn btn-success" href="/view_user_pdf" target="_blank">VIEW PDF</a>
 
                 <a href="/users/create" class="btn btn-success float-right"><i class="fa fa-plus" aria-hidden="true"></i>User</a>
               </div>
+              <div class="d-flex justify-content-end mb-4">
+            
+        </div>
               <table class="table">
   <thead>
     <tr>
@@ -56,17 +62,17 @@
    
   </tbody>
 </table>
-      
-  {{$user->links()}}      
+     {{$user->links("pagination::bootstrap-4")}} 
+   
      </div>
    </div>
 </div>
 </div>
 </section>
 </div>
-<style>
+<!-- <style>
   .w-5{
     display:none;
   }
-</style>
+</style> -->
 @stop

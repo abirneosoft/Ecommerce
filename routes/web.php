@@ -14,6 +14,7 @@ use App\Http\controllers\Api\orderdetail_controller;
 use App\Http\controllers\CmsController;
 use App\Http\controllers\ContactController;
 use App\Http\controllers\show_controller;
+use App\Http\controllers\PdfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,6 +82,8 @@ Route::resource('contact',ContactController::class);
 /**admin configuration */
 Route::resource('configuration',show_controller::class);
 
+Route::get('/export_user_pdf', [PdfController::class,'export_user_pdf']);
+Route::get('/view_user_pdf', [PdfController::class,'view_user_pdf']);
 
 
 Auth::routes();

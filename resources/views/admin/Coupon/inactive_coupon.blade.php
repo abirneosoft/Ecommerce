@@ -53,7 +53,7 @@
    
   </tbody>
 </table>
-{{$coup->links()}}
+{{$coup->links("pagination::bootstrap-4")}}
              
      </div>
    </div>
@@ -61,10 +61,10 @@
 </div>
 </section>
 </div>
-<style>
+<!-- <style>
   .w-5{
     display:none;
   }
-</style>
+</style> -->
 
 @stop
